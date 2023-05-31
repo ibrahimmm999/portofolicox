@@ -2,7 +2,7 @@
 module.exports = {
   purge: {
     enabled: true,
-    content: ["./build.css", "./dist/**/*.{html,js}", "./**/*.{html,js}"],
+    content: ["./build.css", "./dist/**/*.{html,js}"],
     options: {
       safelist: [],
     },
