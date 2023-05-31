@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+    p{
+        @apply tracking-widest;
+    }
+   
+}
+
+.wrapper {
+  max-width: 700px;
+  width: 100%;
+  /* position: relative; */
+}
+
+.wrapper .arrow:active{
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper .arrow:first-child{
+  left: -22px;
+}
+.wrapper .arrow:last-child{
+  right: -22px;
+}
+.wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .item-carousel) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 200px;
+  list-style: none;
+  @apply bg-bg-project;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 32px;
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+  .portofolio-item img{
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 521px) and (max-width: 720px) {
+  .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+  }
+  .portofolio-detail {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 870px) {
+  .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+  }
+  .portofolio-detail {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1250px) {
+  .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+    }
+    .portofolio-detail {
+      display: none;
+    }
+  }
+
+@media screen and (min-width: 1280px) and (max-width: 1480px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+  .carousel-container{
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 1478px) {
+  .portofolio-detail {
+    display: none;
+  }
+  .portofolio-wrapper{
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1668px) {
+  .portofolio-item{
+    @apply flex-col;
+    @apply items-center;
+  }
+}
+
+@media screen and (max-width: 1668px) {
+  .portofolio-item a{
+    margin-top: 20px;
+  }
+}
+.portofolio .portofolio-item h1{
+    color: #DEDEDE;
+}
+.portofolio .portofolio-item p{
+    color: rgba(212, 212, 212, 1);
+}
+
+.arrow{
+  transition: color 0.4s linear;
+  /* position: relative; */
+}
+
+.arrow-next:hover{
+  color: #4CA9FF;
+}
+.arrow-prev:hover{
+  color: #3BF686;
+}
